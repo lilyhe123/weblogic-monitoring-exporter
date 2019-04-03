@@ -18,7 +18,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: weblogic-domain
+  namespace: default
   apiGroup: ""
 roleRef:
   kind: ClusterRole
@@ -32,11 +32,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
   name: weblogic-domain-operator-rolebinding
-  namespace: weblogic-operator
+  namespace: weblogic-operator1
 subjects:
 - kind: ServiceAccount
   name: default
-  namespace: weblogic-domain
+  namespace: default
   apiGroup: ""
 roleRef:
   kind: ClusterRole
