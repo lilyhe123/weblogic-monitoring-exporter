@@ -59,7 +59,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: prom/prometheus:v2.8.1
+        image: prom/prometheus:v1.7.1
         ports:
         - containerPort: 9090
         args:
@@ -139,6 +139,21 @@ data:
     # default named port `https`. This works for single API server deployments as
     # well as HA API server deployments.
     scrape_configs:
+      - job_name: 'node'
+        static_configs:
+          - targets: ['10.247.186.60:9100']
+
+      - job_name: 'grafana'
+
+        static_configs:
+          - targets: ['grafana:3000']
+
+      # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+      - job_name: 'prometheus'
+
+        static_configs:
+          - targets: ['localhost:9090']
+
       - job_name: 'kubernetes-apiservers'
 
         kubernetes_sd_configs:

@@ -2,15 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: exporter-managed-server-1
-  namespace: default
+  namespace: test1 
 spec:
   type: NodePort
   ports:
   - name: http
-    nodePort: 30315
+    nodePort: 30319
     port: 8001
     targetPort: 8001
   selector:
     weblogic.createdByOperator: "true"
-    weblogic.domainUID: domain1
+    weblogic.domainUID: domain3
     weblogic.serverName: managed-server-1
