@@ -38,7 +38,7 @@ class MetricsScraper {
         scrapeItem(response, selector, "");
         return metrics;
     }
-    timber
+
     void setMetricNameSnakeCase(boolean metricNameSnakeCase) {
         this.metricNameSnakeCase = metricNameSnakeCase;
     }
